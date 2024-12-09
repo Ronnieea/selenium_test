@@ -26,7 +26,7 @@ for index, credential in enumerate(credentials):
 
     # 設立密碼-正確版
     try:
-        driver.get("http://127.0.0.1:5173/set-password")
+        driver.get("https://swe.verypro.wtf/set-password")
 
         new_passwd_input = driver.find_element(
             By.XPATH, "/html/body/div[1]/div/main/div/div[2]/div/input")
@@ -72,7 +72,7 @@ for index, credential in enumerate(credentials):
 
     # 設立密碼-錯誤版(密碼不一致)
     try:
-        driver.get("http://127.0.0.1:5173/set-password")
+        driver.get("https://swe.verypro.wtf/set-password")
         new_passwd_input = driver.find_element(
             By.XPATH, "/html/body/div[1]/div/main/div/div[2]/div/input")
         confirm_passwd_input = driver.find_element(

@@ -14,7 +14,7 @@ password = "Password123!"
 
 try:
     # 登入
-    driver.get("http://127.0.0.1:5173/")
+    driver.get("https://swe.verypro.wtf/")
 
     email_input = driver.find_element(
         By.XPATH, "//input[@type='text' and @placeholder='輸入您的電子郵件']")

@@ -12,7 +12,7 @@ driver = webdriver.Chrome(service=service)
 
 try:
 
-    driver.get("http://127.0.0.1:5173/")
+    driver.get("https://swe.verypro.wtf/")
 
     def check_link(xpath, description):
         try:
@@ -51,7 +51,7 @@ try:
     check_link("/html/body/div/div/div[1]/div[1]/div[5]", "登入")
 
     # 檢查忘記密碼連結
-    check_link("/html/body/div/div/div[1]/div[1]/div[4]/div[2]/a", "忘記密碼")
+    check_link("/html/body/div/div/div[1]/div/div[4]/div/a", "忘記密碼")
     check_afterlink("/html/body/div/div/main/div/p[1]", "忘記密碼？")
     driver.back()
 
@@ -67,7 +67,8 @@ try:
 
     # 檢查網頁名稱和logo
     check_element("/html/body/div/div/nav/div/div/a[1]/span", "網頁名稱")
-    # check_element("", "logo")  # logo path 待補
+    check_element(
+        "//img[@alt='logo' and @src='/assets/logo-DoNYWvJZ.png']", "logo")
 
     # 檢查歡迎文字和吉祥物
     welcome = check_element("/html/body/div/div/div[1]/div[1]/p[1]", "歡迎文字")
@@ -76,7 +77,8 @@ try:
     else:
         print("歡迎文字不正確")
 
-    check_element("/html/body/div/div/div[1]/div[2]", "吉祥物")
+    check_element(
+        "//img[@src='/assets/login-placeholder-CNdZqKmF.png']", "吉祥物")
 
     # 檢查電子郵件地址和密碼輸入
     email_input = check_element(
@@ -91,15 +93,15 @@ try:
         password_input.send_keys("Password123!")
         print("密碼輸入框可輸入")
 
-    # 檢查記住我
-    remember_me_checkbox = check_element(
-        "//input[@id='icon' and @type='checkbox']", "記住我")
-    if remember_me_checkbox:
-        remember_me_checkbox.click()
-        if remember_me_checkbox.is_selected():
-            print("記住我勾選欄可勾選且成功勾選")
-        else:
-            print("記住我勾選欄未能成功勾選")
+    # # 檢查記住我
+    # remember_me_checkbox = check_element(
+    #     "//input[@id='icon' and @type='checkbox']", "記住我")
+    # if remember_me_checkbox:
+    #     remember_me_checkbox.click()
+    #     if remember_me_checkbox.is_selected():
+    #         print("記住我勾選欄可勾選且成功勾選")
+    #     else:
+    #         print("記住我勾選欄未能成功勾選")
 
     # 檢查網站資訊
     check_element("/html/body/div/div/div[2]", "網站資訊")

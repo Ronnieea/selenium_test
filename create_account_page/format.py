@@ -12,7 +12,7 @@ driver = webdriver.Chrome(service=service)
 
 try:
 
-    driver.get("http://127.0.0.1:5173/")
+    driver.get("https://swe.verypro.wtf/")
 
     # 進入創建帳號頁面
     create_account_button = driver.find_element(
